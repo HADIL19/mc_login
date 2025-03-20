@@ -3,8 +3,6 @@ import 'package:provider/provider.dart';
 import 'theme_provider.dart';
 import 'login_page.dart';
 
-
-
 void main() {
   runApp(
     ChangeNotifierProvider(

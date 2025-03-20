@@ -21,3 +21,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/microclub_logo.svg
+    - assets/mc_black.svg

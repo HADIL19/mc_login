@@ -13,7 +13,6 @@ class LoginPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Login"),
         actions: [
           IconButton(
             icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
@@ -21,18 +20,23 @@ class LoginPage extends StatelessWidget {
               themeProvider.toggleTheme();
             },
           ),
-          
         ],
       ),
       body: Center(
         child: Column(
-          mainAxisSize: MainAxisSize.min, 
+          mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(height: 20),
-            SvgPicture.asset(
-              'assets/microclub_logo.svg',
+            SizedBox(
               width: 120,
+              height: 120,
+              child: SvgPicture.asset(
+                isDarkMode
+                    ? 'assets/mc_black.svg'
+                    : 'assets/microclub_logo.svg',
+              ),
             ),
+
             const SizedBox(height: 20),
             const Text(
               'Micro Club',
@@ -40,9 +44,7 @@ class LoginPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton.icon(
-              onPressed: () {
-             
-              },
+              onPressed: () {},
               icon: const Icon(Icons.discord, color: Colors.black),
               label: const Text(
                 'Discord',
@@ -58,14 +60,13 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20), // Space between button and text
-         
-              
-              const Text(
-                "By signing in, you certify that you're\n an MC member.",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15, color: Colors.grey),
-              ),
-           const Spacer(flex: 1), // 🔹 Increased space at the bottom
+
+            const Text(
+              "By signing in, you certify that you're\n an MC member.",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 15, color: Colors.grey),
+            ),
+            const Spacer(flex: 1), // 🔹 Increased space at the bottom
           ],
         ),
       ),
