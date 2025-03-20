@@ -31,6 +31,7 @@ class LoginPage extends StatelessWidget {
               'assets/microclub_logo.svg', // Make sure to add this image in assets folder
               width: 120,
             ),
+            
             const SizedBox(height: 20),
             const Text(
               'Micro Club',

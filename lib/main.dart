@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'theme_provider.dart';
 import 'login_page.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 
 
 void main() {
