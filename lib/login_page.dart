@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'theme_provider.dart';
-
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -21,26 +21,27 @@ class LoginPage extends StatelessWidget {
               themeProvider.toggleTheme();
             },
           ),
+          
         ],
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min, 
           children: [
-            Image.asset(
-              'assets/microclub_logo.svg', // Make sure to add this image in assets folder
+            SizedBox(height: 20),
+            SvgPicture.asset(
+              'assets/microclub_logo.svg',
               width: 120,
             ),
-            
             const SizedBox(height: 20),
             const Text(
               'Micro Club',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: () {
-                // Add Discord login logic here
+             
               },
               icon: const Icon(Icons.discord, color: Colors.black),
               label: const Text(
@@ -49,18 +50,22 @@ class LoginPage extends StatelessWidget {
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 100, vertical: 5),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(10),
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            const Text(
-              "By signing in, you certify that you're an MC member.",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12),
-            ),
+            const SizedBox(height: 20), // Space between button and text
+         
+              
+              const Text(
+                "By signing in, you certify that you're\n an MC member.",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 15, color: Colors.grey),
+              ),
+           const Spacer(flex: 1), // 🔹 Increased space at the bottom
           ],
         ),
       ),
