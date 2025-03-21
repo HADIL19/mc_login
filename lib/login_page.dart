@@ -12,63 +12,64 @@ class LoginPage extends StatelessWidget {
     bool isDarkMode = themeProvider.themeMode == ThemeMode.dark;
 
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
+      body: Stack(
+        children: [
+          Positioned(
+            top: 20,
+            right: 20,
+            child: FloatingActionButton(
             onPressed: () {
-              themeProvider.toggleTheme();
-            },
+             themeProvider.toggleTheme();
+              },
+               backgroundColor: isDarkMode ? Colors.black : Colors.white,
+               foregroundColor: isDarkMode ? Colors.white : Colors.black,
+              child: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
+)
+          ),
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(height: 180),
+                SizedBox(
+                  width: 120,
+                  height: 120,
+                  child: SvgPicture.asset(
+                    isDarkMode ? 'assets/mc_black.svg' : 'assets/microclub_logo.svg',
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Micro Club',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(Icons.discord, color: Colors.black),
+                  label: const Text(
+                    'Discord',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 5),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20), // Space between button and text
+                const Text(
+                  "By signing in, you certify that you're\n an MC member.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, color: Colors.grey),
+                ),
+                const Spacer(flex: 1),
+              ],
+            ),
           ),
         ],
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(height: 20),
-            SizedBox(
-              width: 120,
-              height: 120,
-              child: SvgPicture.asset(
-                isDarkMode
-                    ? 'assets/mc_black.svg'
-                    : 'assets/microclub_logo.svg',
-              ),
-            ),
-
-            const SizedBox(height: 20),
-            const Text(
-              'Micro Club',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.discord, color: Colors.black),
-              label: const Text(
-                'Discord',
-                style: TextStyle(color: Colors.black),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 100, vertical: 5),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20), // Space between button and text
-
-            const Text(
-              "By signing in, you certify that you're\n an MC member.",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 15, color: Colors.grey),
-            ),
-            const Spacer(flex: 1), // 🔹 Increased space at the bottom
-          ],
-        ),
       ),
       backgroundColor: isDarkMode ? Colors.black : Colors.white,
     );
